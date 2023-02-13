@@ -6,10 +6,9 @@ with import nixpkgs { inherit system; };
 
 stdenv.mkDerivation {
   name = "hadoop-shell";
-  src = ./.;
   buildInputs = [
-      hadoop
       jdk
+      hadoop
       python311
       python311Packages.hdfs
   ];
@@ -19,5 +18,8 @@ stdenv.mkDerivation {
     echo "Vinetos is watching :ratio:"
 
     export PDSH_RCMD_TYPE=ssh
+
+    export PATH=$PATH:${pkgs.hadoop}/bin
+    export PATH=$PATH:${pkgs.hadoop}/sbin
   '';
 }
