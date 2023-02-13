@@ -28,6 +28,6 @@
   environment.systemPackages = with pkgs; [
       hadoop
       jdk
-      python311
+      python311.withPackages hdfs
   ];
 }
