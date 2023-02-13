@@ -1,11 +1,17 @@
 # Hadoop
+# Hadoop
   services.hadoop = {
         hbase.master.initHDFS = true;
         hdfs.namenode = {
           enable = true;
           formatOnInit = true;
+          restartIfChanged = true;
+          openFirewall = true;
         };
-        hdfs.datanode.enable = true;
+        hdfs.datanode = {
+          enable = true;
+          openFirewall = true;
+        };
         yarn.resourcemanager.enable = true;
 
         coreSite = {
