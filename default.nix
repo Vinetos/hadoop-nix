@@ -11,15 +11,6 @@ stdenv.mkDerivation {
       hadoop
       python311
       python311Packages.hdfs
+      python311Packages.mrjob
   ];
-
-  shellHook = 
-  ''
-    echo "Vinetos is watching :ratio:"
-
-    export PDSH_RCMD_TYPE=ssh
-
-    export PATH=$PATH:${pkgs.hadoop}/bin
-    export PATH=$PATH:${pkgs.hadoop}/sbin
-  '';
 }
